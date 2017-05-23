@@ -1,0 +1,21 @@
+{extend name="public:base"}
+{block name="head"}
+<link rel="stylesheet" href="__ADCSS__/sql/add.css">
+<script src="__ADJS__/sql/add.js"></script>
+<!-- <script src="__ADJS__/public/css.js"></script> -->
+{/block}
+{block name="main"}
+<div id="body">
+  <form class="layui-form"  method="post" action="">
+		<div class="layui-form-item layui-form-text">
+      <textarea name="query" required lay-verify="required" placeholder="请输入sql的建表命令" class="layui-textarea" style="height: 180px"></textarea>
+    </div>    
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <button class="layui-btn add" lay-submit lay-filter="formDemo">立即提交</button>
+        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+      </div>
+    </div>
+  </form>
+</div>
+{/block}

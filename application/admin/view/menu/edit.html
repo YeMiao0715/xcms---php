@@ -1,0 +1,64 @@
+{extend name="public:base"}
+{block name="head"}
+  <link rel="stylesheet" href="__ADCSS__/menu/edit.css">
+  <script src="__ADJS__/menu/edit.js"></script>
+  <link rel="stylesheet" href="__ADCSS__/public/css.css" >
+  <script src="__ADJS__/public/css.js"></script>
+{/block}
+{block name="main"}
+<div id="body">
+  <div id="title">
+    <h2>内容修改</h2>
+  </div>
+  <form class="layui-form"  method="post" action="">
+    <div class="layui-form-item">
+      <label class="layui-form-label">名称</label>
+      <div class="layui-input-block">
+        <input type="text" name="name" required  lay-verify="required" placeholder="请输入菜单名称" autocomplete="off" class="layui-input" value="{$list.name}">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">类别</label>
+      <div class="layui-input-block">
+        <select name="fid">
+          {if condition="$list.fid eq 0"}
+            <option value="{$list.fid}">一级分类</option>
+          {else /}
+            <option value="{$list.fid}">{$f_cate[$list.fid]}</option>              
+          {/if}
+        </select>
+      </div>
+    </div>
+    <div class="layui-form-item controller">
+      <label class="layui-form-label">控制器</label>
+      <div class="layui-input-block">
+        <input type="text" name="controller" placeholder="例：index " autocomplete="off" class="layui-input" value="{$list.controller}">
+      </div>
+    </div>
+    <div class="layui-form-item function">
+      <label class="layui-form-label">方法</label>
+      <div class="layui-input-block">
+        <input type="text" name="function" placeholder="例：index/id" autocomplete="off" class="layui-input" value="{$list.function}">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">排序</label>
+      <div class="layui-input-block">
+        <input type="text" name="sort" required  lay-verify="required" placeholder="数字越小越靠前" autocomplete="off" class="layui-input" value="{$list.sort}">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">显示</label>
+      <div class="layui-input-block">
+        <input type="radio" name="show" value="1" title="是" checked>
+        <input type="radio" name="show" value="0" title="否">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <button class="layui-btn edit" lay-submit lay-filter="formDemo">立即提交</button>
+      </div>
+    </div>
+  </form>
+</div>
+{/block}

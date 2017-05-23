@@ -1,0 +1,74 @@
+{extend name="public:base"}
+{block name="head"}
+  <link rel="stylesheet" href="__ADCSS__/menu/add.css">
+  <script src="__ADJS__/menu/add.js"></script>
+  <link rel="stylesheet" href="__ADCSS__/public/css.css">
+  <script src="__ADJS__/public/css.js"></script>
+{/block}
+{block name="main"}
+
+<div id="body">
+  <div id="title">
+    <h2>添加菜单</h2>
+  </div>
+  <form class="layui-form"  method="post" action="">
+    <div class="layui-form-item">
+      <label class="layui-form-label">名称</label>
+      <div class="layui-input-block">
+        <input type="text" name="name" required  lay-verify="required" placeholder="请输入菜单名称" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">类别</label>
+      <div class="layui-input-block">
+        <select name="fid" >
+          <option value="0">一级分类</option>
+          {volist name="list" id="vo"}
+            {if condition="$vo.fid eq 0"}
+             <option value="{$vo.id}">{$vo.name}</option>
+            {/if}
+          {/volist}
+        </select>
+      </div>
+    </div>
+    <div class="layui-form-item controller">
+      <label class="layui-form-label">控制器</label>
+      <div class="layui-input-block">
+        <input type="text" name="controller" placeholder="例：index" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item function">
+      <label class="layui-form-label">方法</label>
+      <div class="layui-input-block">
+        <input type="text" name="function" placeholder="例：index/id" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">排序</label>
+      <div class="layui-input-block">
+        <input type="text" name="sort" required  lay-verify="required" placeholder="数字越小越靠前" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">显示</label>
+      <div class="layui-input-block">
+        <input type="radio" name="show" value="1" title="是" checked>
+        <input type="radio" name="show" value="0" title="否">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">.bat</label>
+      <div class="layui-input-block">
+        <input type="radio" name="bat" value="1" title="开启">
+        <input type="radio" name="bat" value="0" title="关闭" checked>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <button class="layui-btn add" lay-submit lay-filter="formDemo">立即提交</button>
+        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+      </div>
+    </div>
+  </form>
+</div>
+{/block}

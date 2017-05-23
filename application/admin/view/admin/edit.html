@@ -1,0 +1,44 @@
+{extend name="public:base"}
+{block name="head"}
+  <link rel="stylesheet" href="__ADCSS__/user/edit.css">
+  <script src="__ADJS__/user/edit.js"></script>
+  <link rel="stylesheet" href="__ADCSS__/public/css.css">
+  <script src="__ADJS__/public/css.js"></script>
+{/block}
+{block name="main"}
+<div id="body">
+  <form class="layui-form"  method="post" action="">
+    <div class="layui-form-item">
+      <label class="layui-form-label">昵称</label>
+      <div class="layui-input-block">
+        <input type="text" name="name" placeholder="用于登录" autocomplete="off" class="layui-input" value="{$list.name}">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">用户名</label>
+      <div class="layui-input-block">
+        <input type="text" name="user" placeholder="用于登录" autocomplete="off" class="layui-input" value="{$list.user}">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">密码</label>
+      <div class="layui-input-block">
+        <input type="password" name="password" placeholder="用于登录" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+     <div class="layui-form-item">
+	    <label class="layui-form-label">管理员</label>
+	    <div class="layui-input-block">
+	      <input type="radio" name="type" value="0" title="是">
+	      <input type="radio" name="type" value="1" title="否" checked>
+	    </div>
+	  </div>
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <button class="layui-btn edit" lay-submit lay-filter="formDemo">立即提交</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{/block}

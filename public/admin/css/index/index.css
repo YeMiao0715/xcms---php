@@ -1,0 +1,54 @@
+#top{
+	position: absolute;
+	top: 0;
+	left: 200px;
+	width: calc(100% - 200px);
+	background-color: #393D49;
+	height: 50px;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 30px;
+}
+/*#kuai{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50px;
+	height: 100%;
+	background-color: #393D49;
+}*/
+#menu{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	background-color: #393D49;
+	height: 100%;
+	color: #FFFFFF;
+}
+#menu_title{
+	position:relative;
+	height: 50px;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 30px;
+}
+#menu_content{
+	position:relative;
+}
+#main{
+	position: absolute;
+	top: 50px;
+	left: 200px;
+	width: calc(100% - 200px);
+	height: 40px;
+}
+.layui-tab{
+	margin-top: 0px;
+}
+.layui-tab-title{
+	margin:0px;
+}
+.layui-tab-content{
+	padding: 0px;
+}

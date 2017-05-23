@@ -1,0 +1,35 @@
+{extend name="public:base"}
+{block name="head"}
+<!-- <script src="__ADJS__/public/css.js"></script> -->
+<link rel="stylesheet" href="__ADCSS__/sql/index.css">
+<script src="__ADJS__/sql/index.js"></script>
+{/block}
+{block name="main"}
+<div id="menu">
+	<ul class="test">
+		<li>						
+			<a class="f" href="javascript:;" >		
+				<i class="layui-icon f_i1" style="color: #000;">&#xe623;</i>		
+				<i class="layui-icon f_i2" style="color: #000;">&#xe622;</i>
+				数据表
+			</a>
+			<dl class="z">
+				{volist name="menu" id="vo"}
+				<dd>
+					<a href="javascript:;" class="table" data="{$vo.Tables_in_xcms_db}">
+						<i class="layui-icon">&#xe62a; </i>		
+						{$vo.Tables_in_xcms_db}
+					</a>
+				</dd>
+				{/volist}
+			</dl>
+		</li>
+	<!-- 	<li>
+			<a class="add" href="javascript:;">
+				<i class="layui-icon">&#xe61f;</i>
+				添加数据表
+			</a>
+		</li> -->
+	</ul>
+</div>
+{/block}

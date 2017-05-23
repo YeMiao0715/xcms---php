@@ -1,0 +1,81 @@
+{extend name="public:base"}
+{block name="title"}xCMS系统{/block}
+{block name="head"}
+	<link rel="stylesheet" href="__ADCSS__/index/index.css">
+	<script src="__ADJS__/index/index.js"></script> 
+{/block}
+{block name="menu"}	  
+<div id="top">
+	<span class="pull-left">
+		<button class="layui-btn layui-btn-small layui-btn-primary button">
+		  <i class="fa fa-list-ul"></i>
+		</button>		
+	</span>
+	<span class="pull-right">
+		<a class="layui-btn layui-btn-small" href="out">安全退出</a>
+	</span>
+</div>
+<div id="menu">
+	<div id="menu_title">
+		xCMS系统
+	</div>
+	<div id="menu_content">		
+		<p id="menu_content_title" style="text-align: center;">
+			<i class="fa fa-address-card"></i> 
+			管理员: {php}echo input('session.user'){/php}
+		</p>
+		<ul class="layui-nav layui-nav-tree">
+			{volist name="list" id="vo"}
+				{if condition="$vo.fid eq 0"}
+					<li class="layui-nav-item">
+			    	<a class="f" href="javascript:;" data="{$vo.controller}">{$vo.name}</a>
+				    <dl class="layui-nav-child">
+				    	{volist name="list" id="v"}
+				    		{if condition="$v.fid == $vo.id"}
+				      		<dd><a class="z" href="javascript:;" data="{$v.function}">{$v.name}</a></dd>
+				      	{/if}
+				    	{/volist}
+				    </dl>
+			    </li>
+				{/if}
+			{/volist}
+			{if condition="input('session.type') eq 0"}
+				<li class="layui-nav-item">
+		    	<a class="f" href="javascript:;" data="admin">管理员管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a class="z" href="javascript:;" data="index">管理员列表</a></dd>
+			      <dd><a class="z" href="javascript:;" data="add">管理员添加</a></dd>
+			    </dl>
+		    </li>
+			  <li class="layui-nav-item">
+		    	<a class="f" href="javascript:;" data="menu">菜单管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a class="z" href="javascript:;" data="index">菜单列表</a></dd>
+			      <dd><a class="z" href="javascript:;" data="add">添加菜单</a></dd>
+			    </dl>
+		    </li>
+		    <li class="layui-nav-item">
+		    	<a class="f" href="javascript:;" data="sql">数据库管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a class="z" href="javascript:;" data="index">库列表</a></dd>
+			    </dl>
+		    </li>
+	    {/if}
+		</ul>
+	</div>	
+</div>
+{/block}
+{block name="main"}
+<div id="main">
+	<div class="layui-tab" lay-filter="tab-nav" lay-allowClose="true">
+	  <ul class="layui-tab-title">
+	    <li class="layui-this" lay-id="0">首页</li>
+	  </ul>
+	  <div class="layui-tab-content">
+	    <div class="layui-tab-item layui-show">
+	    	<iframe src="home" frameborder="0" style='position: absolute;width: 100%;margin:0 auto;left:0;right:0'></iframe>
+	    </div>
+	  </div>
+	</div>
+</div>
+{/block}

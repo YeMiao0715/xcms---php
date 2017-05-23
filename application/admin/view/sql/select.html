@@ -1,0 +1,28 @@
+{extend name="public:base"}
+{block name="head"}
+  <script src="__ADJS__/sql/select.js"></script>
+{/block}
+{block name="main"}
+<div id="body">
+  <input class="table_name" type="hidden" value="{$table}">
+	<table  class="layui-table " lay-even lay-skin="nob">
+    <thead>
+      <tr>
+				{volist name="field" id="vo"}
+					<th>{$vo.Field}</th>
+				{/volist}
+      </tr> 
+    </thead>
+    <tbody >
+    	{volist name="list" id="vo"}
+    		<tr>
+	    		{volist name="field" id="v"}
+	    			<td>{$vo[$v.Field]}</td>
+					{/volist} 
+				</tr>   
+      {/volist}
+    </tbody>
+  </table>
+  <input class="text_data" type="hidden" value="">
+
+{/block}
