@@ -46,9 +46,6 @@ $(function(){
 			$('#menu').css({
 			display: 'block'
 			});
-			// $('#kuai').css({
-			// 	display: 'none'
-			// });
 			$('#top').css({
 				left: 200,
 				width: 'calc(100% - 200px)'
@@ -61,17 +58,6 @@ $(function(){
 			$('#menu').css({
 				display: 'none'
 			});
-			// $('#kuai').css({				
-			// 	display: 'block'
-			// });
-			// $('#top').css({
-			// 	left: '50px',
-			// 	width: 'calc(100% - 50px)'
-			// });
-			// $('#main').css({
-			// 	left: '50px',
-			// 	width: 'calc(100% - 50px)'
-			// });
 			$('#top').css({
 				left: 0,
 				width: '100%'
